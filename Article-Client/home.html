@@ -8,9 +8,9 @@
 </head>
 <body>
     <img class="background-image" src="./Assests/img-background.png" alt="backgroundImage">
-    <nav>
+    <nav class="nav-bar">
         <ul class="nav-links">
-            <li><input type="text" placeholder="Search questions..."></li>
+            <li><input type="text" id="searchInput" placeholder="Search questions..."></li>
         </ul>
         <div class="nav-question">
             <a href="./faq.html" class="add-question">Add Question</a>
@@ -18,5 +18,8 @@
     </nav>
 
     <div class="qa-container" id="qaContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
+    <script src="../Article-Client/Scripts/getQuestions.js"></script>
 </body>
 </html>
