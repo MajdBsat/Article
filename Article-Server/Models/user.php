@@ -76,9 +76,9 @@ class User extends SkeletonUser {
         $result->bind_param("s", $email);
 
         if ($result->execute()) {
-            return successResponse("User created successfully.");
+            return successResponse("User deleted successfully.");
         } else {
-            return errorResponse("Error creating user: " . $this->conn->error);
+            return errorResponse("Error deleting user: " . $this->conn->error);
         }
     }
 }
