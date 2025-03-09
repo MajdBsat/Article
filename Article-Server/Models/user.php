@@ -32,7 +32,10 @@ class User extends SkeletonUser {
         $result->bind_param("sss", $this->full_name, $this->email, $hashedPassword);
 
         if ($result->execute()) {
-            return successResponse("User created successfully.");
+            return successResponse("User created successfully.", [
+                    "name" => $this->full_name,
+                    "email" => $this->email
+            ]);
         } else {
             return errorResponse("Error creating user: " . $this->conn->error);
         }

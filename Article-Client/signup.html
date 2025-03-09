@@ -10,10 +10,9 @@
     <img class="background-image" src="./Assests/img-background.png" alt="backgroundImage">
     <div class="container">
         <h2>Sign Up</h2>
-        <form class="GeneralForm" id="SignupForm">
+        <form class="GeneralForm" id="SignupForm" onsubmit = "signupUser(event)">
             <input type="text" id="name" placeholder="Full Name" required>
             <input type="email" id="email" placeholder="Email" required>
-            <input type="phone" id="phone" placeholder="Phone Number" required>
             <input type="password" id="password" placeholder="Password" required>
             <div class="button-group">
                 <p>Already have an account? <a href="./index.html">Login here</a></p>
@@ -21,5 +20,7 @@
             </div>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
+    <script src="../Article-Client/Scripts/signup.js"></script>
 </body>
 </html>

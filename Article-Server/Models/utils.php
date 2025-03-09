@@ -1,9 +1,10 @@
 <?php
 
-function successResponse($message): string {
+function successResponse($message, $data = []): string {
     return json_encode([
         'status' => 'success',
-        'message' => $message
+        'message' => $message,
+        'data' => $data
     ]);
 }
 
