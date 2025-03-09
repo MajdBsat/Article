@@ -4,7 +4,7 @@ require_once './userSkeleton.php';
 require_once '../Connection/connection.php';
 
 class User extends SkeletonUser {
-    private $conn;
+    //private $conn;
 
     public function __construct($full_name, $email, $password) {
         parent::__construct($full_name, $email, $password);
