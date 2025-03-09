@@ -1,7 +1,7 @@
 <?php
 include ("utils.php");
-require_once './QuestionSkeleton.php';
-require_once '../Connection/connection.php';
+require_once 'QuestionSkeleton.php';
+require_once '../../Connection/connection.php';
 
 class Question extends QuestionSkeleton {
 
@@ -47,7 +47,11 @@ class Question extends QuestionSkeleton {
                     'answer' => $row['answer']
                 ];
             }
-            return successResponse("Questions retrieved successfully.");
+            return json_encode([
+                'status' => 'success',
+                'message' => 'Questions retrieved successfully.',
+                'data' => $questions
+            ]);
         } else {
             return errorResponse("No questions found.");
         }
