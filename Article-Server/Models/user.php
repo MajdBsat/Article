@@ -1,10 +1,12 @@
 <?php
-
-require_once './userSkeleton.php';
-require_once '../Connection/connection.php';
+include ("utils.php");
+include ("../../Connection/connection.php");
+require_once ("userSkeleton.php");
+require_once ("../../Database/Migrations/tableUsers.php");
+require_once ("../../Database/Migrations/tableQuestions.php");
+require_once ("../../Database/Seeds/seeds.php");
 
 class User extends SkeletonUser {
-    //private $conn;
 
     public function __construct($full_name, $email, $password) {
         parent::__construct($full_name, $email, $password);
@@ -13,11 +15,27 @@ class User extends SkeletonUser {
     }
 
     public function createUser() {
+
+        $query = $this->conn->prepare("SELECT id FROM users WHERE email = ?");
+        $query->bind_param("s", $this->email);
+        $query->execute();
+        $result = $query->get_result();
+
+        if ($result->num_rows > 0) {
+            return errorResponse("User already exists");
+        }
+        $query->close();
+
         $query = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
         $result = $this->conn->prepare($query);
         $hashedPassword = hash("sha256", $this->password);
         $result->bind_param("sss", $this->full_name, $this->email, $hashedPassword);
-        return $result->execute();
+
+        if ($result->execute()) {
+            return successResponse("User created successfully.");
+        } else {
+            return errorResponse("Error creating user: " . $this->conn->error);
+        }
     }
 
     public function updateUser($email) {
@@ -25,13 +43,23 @@ class User extends SkeletonUser {
         $result = $this->conn->prepare($query);
         $hashedPassword = hash("sha256", $this->password);
         $result->bind_param("sss", $this->full_name, $hashedPassword, $email);
-        return $result->execute();
+
+        if ($result->execute()) {
+            return successResponse("User created successfully.");
+        } else {
+            return errorResponse("Error creating user: " . $this->conn->error);
+        }
     }
 
     public function deleteUser($email) {
         $query = "DELETE FROM users WHERE email = ?";
         $result = $this->conn->prepare($query);
         $result->bind_param("s", $email);
-        return $result->execute();
+
+        if ($result->execute()) {
+            return successResponse("User created successfully.");
+        } else {
+            return errorResponse("Error creating user: " . $this->conn->error);
+        }
     }
 }

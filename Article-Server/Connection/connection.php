@@ -1,4 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
+header("Content-Type: application/json");
+header("Access-Control-Allow-Headers: Content-Type");
 
 $db_host = "localhost";
 $db_name = "article_db";

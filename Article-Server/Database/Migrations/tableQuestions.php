@@ -20,6 +20,4 @@ if ($tableExists) {
         echo "Error creating table: " . $conn->error;
     }
 }
-
-$conn->close();
 ?>
