@@ -1,5 +1,5 @@
 <?php
-include("../../Connection/connection.php");
+require_once("../../Connection/connection.php");
 
 $tableExists = $conn->query("SHOW TABLES LIKE 'users'")->num_rows > 0;
 
