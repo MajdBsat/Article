@@ -1,6 +1,6 @@
 <?php
 
-function successResponse($message, $data = []): string {
+function successResponse($message): string {
     return json_encode([
         'status' => 'success',
         'message' => $message,
@@ -8,12 +8,16 @@ function successResponse($message, $data = []): string {
     ]);
 }
 
-function errorResponse($message, $data = []): string {
+function errorResponse($message): string {
     return json_encode([
         'status' => 'error',
-        'message' => $message,
-        'data' => $data
+        'message' => $message
     ]);
+}
+
+function verifyPassword($password, $hashedPassword)
+{
+    return hash("sha256", $password) === $hashedPassword;
 }
 
 ?>
