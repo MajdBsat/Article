@@ -23,10 +23,6 @@ for ($i = 0; $i < count($questions); $i++) {
     if ($result->num_rows === 0) {
         $insertQuery->bind_param("ss", $questions[$i], $answers[$i]);
         $insertQuery->execute();
-        echo "Seed data inserted successfully.";
-    }
-    else{
-        echo "Seed already exists";
     }
 }
 ?>

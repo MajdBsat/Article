@@ -10,7 +10,7 @@
     <img class="background-image" src="./Assests/img-background.png" alt="backgroundImage">
     <div class="container">
         <h2>Login</h2>
-        <form class="GeneralForm" id="LoginForm">
+        <form class="GeneralForm" id="LoginForm" onsubmit="loginUser(event)">
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
             <div class="button-group">
@@ -19,5 +19,8 @@
             </div>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
+    <script src="../Article-Client/Scripts/signin.js"></script>
 </body>
 </html>
