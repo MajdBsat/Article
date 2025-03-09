@@ -3,8 +3,7 @@
 function successResponse($message): string {
     return json_encode([
         'status' => 'success',
-        'message' => $message,
-        'data' => $data
+        'message' => $message
     ]);
 }
 

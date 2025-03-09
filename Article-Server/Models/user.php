@@ -78,7 +78,7 @@ class User extends SkeletonUser {
         if ($result->execute()) {
             return successResponse("User deleted successfully.");
         } else {
-            return errorResponse("Error deleting user: " . $this->conn->error);
+            return errorResponse("Error creating user: " . $this->conn->error);
         }
     }
 }
