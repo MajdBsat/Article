@@ -10,7 +10,7 @@
     <img class="background-image" src="./Assests/img-background.png" alt="backgroundImage">
     <div class="container">
         <h2>Sign Up</h2>
-        <form class="question-form" id="addQuestion">
+        <form class="question-form" id="addQuestion" onsubmit="createQuestion(event)">
             <input type="text" id="question" placeholder="Put question here" required>
             <input type="text" id="answer" placeholder="Put answer here" required>
             <div class="submit">
@@ -18,5 +18,8 @@
             </div>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
+    <script src="../Article-Client/Scripts/addQuestion.js"></script>
 </body>
 </html>

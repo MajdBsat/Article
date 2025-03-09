@@ -116,13 +116,58 @@ nav {
     margin-right: 10px;
 }
 
+
 .qa-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
+    gap: 15px;
+    margin-top: 100%;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    max-height: 1700px;
+}
+
+.question {
+    margin-left: 5px;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     padding: 20px;
-    margin-top: 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 250px;
+    transition: transform 0.3s ease-in-out;
+    flex-grow: 0;
+}
+
+.question:hover {
+    transform: translateY(-5px);
+}
+
+.question h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.question p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    word-wrap: break-word;
 }
 
 .question-form{
@@ -152,4 +197,53 @@ nav {
 
 .submit button:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .GeneralForm, .question-form {
+        align-items: center;
+    }
+
+    .button-group {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .qa-container {
+        margin-top: 120px;
+    }
+
+    .question {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .submit button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 5px;
+    }
+
+    .nav-links input {
+        max-width: 250px;
+    }
+
+    .question {
+        width: 100%;
+        height: auto;
+    }
+
+    .qa-container {
+        flex-direction: column;
+    }
 }
