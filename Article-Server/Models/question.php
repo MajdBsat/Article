@@ -1,7 +1,7 @@
 <?php
 include ("utils.php");
-require_once 'QuestionSkeleton.php';
-require_once '../../Connection/connection.php';
+require_once ("questionSkeleton.php");
+require_once ("../../Connection/connection.php");
 
 class Question extends QuestionSkeleton {
 
