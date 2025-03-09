@@ -27,6 +27,4 @@ for ($i = 0; $i < count($questions); $i++) {
 }
 
 echo "Seed data inserted successfully.";
-
-$conn->close();
 ?>

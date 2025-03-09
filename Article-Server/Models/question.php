@@ -4,7 +4,6 @@ require_once './QuestionSkeleton.php';
 require_once '../Connection/connection.php';
 
 class Question extends QuestionSkeleton {
-    //private $conn;
 
     public function __construct($question, $answer) {
         parent::__construct($question, $answer);
