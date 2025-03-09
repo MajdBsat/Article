@@ -8,7 +8,7 @@ require_once ("../../Database/Seeds/seeds.php");
 
 class User extends SkeletonUser {
 
-    public function __construct($full_name, $email, $password) {
+    public function __construct($full_name = '', $email, $password) {
         parent::__construct($full_name, $email, $password);
         global $conn;
         $this->conn = $conn;
@@ -35,6 +35,25 @@ class User extends SkeletonUser {
             return successResponse("User created successfully.");
         } else {
             return errorResponse("Error creating user: " . $this->conn->error);
+        }
+    }
+
+    public function signIn()
+    {
+        if (empty($this->email) || empty($this->password)) {
+            return errorResponse("Missing field is required.");
+        }
+
+        $query = $this->conn->prepare("SELECT id, password FROM users WHERE email = ?");
+        $query->bind_param("s", $this->email);
+        $query->execute();
+        $result = $query->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user && verifyPassword($this->password, $user["password"])) {
+            return successResponse("Sign in successful", ["id" => $user["id"], "email" => $this->email]);
+        } else {
+            return errorResponse("Wrong Email or Password");
         }
     }
 
