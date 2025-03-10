@@ -5,7 +5,7 @@ async function loginUser(event) {
     event.preventDefault();
 
     try {
-        const response = await axios.post("http://localhost/Article/Article-Server/APIs/V1/signIn.php", {
+        const response = await axios.post("http://13.38.47.28/api/signIn.php", {
             email: email.value,
             password: password.value,
         });

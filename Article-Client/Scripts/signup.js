@@ -6,7 +6,7 @@
     event.preventDefault();
     
     try {
-        const response = await axios.post("http://localhost/Article/Article-Server/APIs/V1/signUp.php", {
+        const response = await axios.post("http://13.38.47.28/api/signUp.php", {
             fullname: fullname.value,
             email: email.value,
             password: password.value,
