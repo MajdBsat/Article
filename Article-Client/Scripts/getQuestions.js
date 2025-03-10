@@ -2,7 +2,7 @@ let allQuestions = [];
 
 async function fetchQuestions() {
     try {
-        const response = await axios.get('http://localhost/Article/Article-Server/APIs/V1/getQuestions.php');
+        const response = await axios.get('http://13.38.47.28/api/getQuestions.php');
         console.log(response.data);
 
         if (response.data.status === 'success' && Array.isArray(response.data.data)) {
