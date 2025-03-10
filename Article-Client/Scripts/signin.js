@@ -14,7 +14,7 @@ async function loginUser(event) {
 
         if (response.data.status === "success") {
             alert("Login successful!");
-            window.location.href = "../../../Article/Article-Client/home.html";
+            window.location.href = "Article-Client/home.html";
         } else {
             alert("Error: " + (response.data ? response.data.message : 'Unknown error'));
         }
